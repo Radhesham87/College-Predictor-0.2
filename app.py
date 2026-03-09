@@ -15,8 +15,11 @@ st.set_page_config(page_title="Engineering College Predictor", layout="wide")
 # PATHS
 # ---------------------------------------
 
-CET_FOLDER = r"E:\\New Volume\\Engineering Software\\college-predictor\\Xlsx Files"
-JEE_FILE = r"E:\\New Volume\\Engineering Software\\college-predictor\\Xlsx Files\\College_Cutoff_Cleaned.xlsx"
+BASE_DIR = os.path.dirname(__file__)
+
+CET_FOLDER = os.path.join(BASE_DIR, "Xlsx Files")
+JEE_FILE = os.path.join(BASE_DIR, "Xlsx Files", "College_Cutoff_Cleaned.xlsx")
+
 
 # ---------------------------------------
 # DISTRICT → UNIVERSITY MAP
@@ -306,5 +309,6 @@ with tab2:
                 (result["Percentile"] >= percentile-variation) &
                 (result["Percentile"] <= percentile+variation)
             ]
+
 
         st.dataframe(result,use_container_width=True,hide_index=True)
